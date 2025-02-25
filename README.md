@@ -1,6 +1,6 @@
 # DFA - Degap Fasta Alignments
 
-- Last modified: tis feb 25, 2025  05:19
+- Last modified: tis feb 25, 2025  05:30
 - Sign: JN
 
 ## Description
@@ -29,7 +29,7 @@ See [INSTALL](INSTALL)
 
 ## Examples
 
-Input example ([in.fas](in.fas))
+Input example ([in.fas](data/in.fas))
 
     $ cat data/in.fas
     >Apa
