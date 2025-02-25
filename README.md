@@ -1,11 +1,11 @@
 # DFA - Degap Fasta Alignments
 
-- Last modified: tis feb 25, 2025  05:30
+- Last modified: tis feb 25, 2025  06:12
 - Sign: JN
 
 ## Description
 
-Remove columns in fasta formatted alignments containing all-missing data.
+Remove columns in large fasta-formatted alignments containing all-missing data.
 
 Designed to make minimal memory footprint.
 
