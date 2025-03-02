@@ -162,12 +162,13 @@ void printFasta(const char *file_name, bit_array_t *bit_array, int wrap_length) 
                     }
                     fprintf(stdout, "%c", r);
                     ++j;
-                    continue;
                 }
                 ++i;
             }
         }
     }
+
+    fprintf(stdout, "\n");
 
     gzclose(zfp);
 
