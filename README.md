@@ -1,6 +1,6 @@
 # DFA - Degap Fasta Alignments
 
-- Last modified: tis feb 25, 2025  06:12
+- Last modified: sön mar 02, 2025  04:01
 - Sign: JN
 
 ## Description
@@ -15,15 +15,15 @@ See [INSTALL](INSTALL)
 
 ## Usage
 
-    $ dfa [-h][-v][-V] infile(s).
+    $ dfa [options] infile(s).
 
 ## Options:
 
-- `-h`                show help
-- `-V`                print version
-- `-v`                be verbose
-- `-m missing_chars`  list of chars treated as missing.
-                      Default characters are `Nn?Xx-`
+- `-h`               show help
+- `-V`               print version
+- `-n`               be noverbose
+- `-m missing_chars` characters treated as missing (default: `Nn?Xx-`)
+- `-w wrap_length`   wrap sequences to length `wrap_length` (default: `60`)
 
 `infile` should be in fasta format.
 
