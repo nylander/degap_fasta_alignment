@@ -3,7 +3,7 @@
 #
 # Copyright © 2025 nylander <johan.nylander@nrm.se>
 # Distributed under terms of the MIT license.
-# Last modified: sön mar 02, 2025  05:11
+# Last modified: sön mar 02, 2025  05:49
 # Sign: JN
 
 """
@@ -79,7 +79,7 @@ def print_fasta(fasta_file, bit_array, wrap):
                                 print("\n", end='', file=sys.stdout)
                                 j = 0
                         i += 1
-                #print('', file=sys.stdout)
+        print('', file=sys.stdout)
 
 def parse_args():
     """
