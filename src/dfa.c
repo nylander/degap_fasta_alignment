@@ -8,7 +8,7 @@ void printUsage(const char *program_name) {
     fprintf(stderr, "  -V                print version\n");
     fprintf(stderr, "  -n                be noverbose\n");
     fprintf(stderr, "  -m missing_chars  list of chars treated as missing\n");
-    fprintf(stderr, "  -w wrap_length    wrap length (default: %i)\n\n", DEFAULT_WRAP_LENGTH);
+    fprintf(stderr, "  -w wrap_length    wrap seq to length (default: %i)\n\n", DEFAULT_WRAP_LENGTH);
     fprintf(stderr, "  infile should be in fasta format.\n\n");
     fprintf(stderr, "Example:\n\n");
     fprintf(stderr, "  %s -m - in.fas > out.fas\n\n", program_name);
