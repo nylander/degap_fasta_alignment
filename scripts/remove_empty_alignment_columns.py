@@ -3,7 +3,7 @@
 #
 # Copyright © 2025 nylander <johan.nylander@nrm.se>
 # Distributed under terms of the MIT license.
-# Last modified: tis feb 25, 2025  04:50
+# Last modified: sön mar 02, 2025  05:11
 # Sign: JN
 
 """
@@ -16,6 +16,9 @@ Optimized for low memory footprint on large data sets (tested on 94 x 368,485,00
 import sys
 import argparse
 from bitarray import bitarray
+
+wrap_default = 60
+VERSION = "1.1"
 
 def get_seq_len(fasta_file):
     """
@@ -48,22 +51,35 @@ def init_bit_array(fasta_file, missing, bit_array):
                         bit_array[i] = True
                     i += 1
 
-def print_fasta(fasta_file, bit_array):
+def print_fasta(fasta_file, bit_array, wrap):
     """
     Read fasta file and print all columns with non-missing data
     """
     i = 0
+    j = 0
+    done_first = 0
     with open(fasta_file, encoding="utf-8") as infile:
         for line in infile:
+            # strip line from newline character
+            line = line.strip()
             if line.startswith('>'):
-                print(line, end='', file=sys.stdout)
+                if done_first:
+                    print('', file=sys.stdout)
+                print(line, end='\n', file=sys.stdout)
                 i = 0
+                j = 0
+                done_first = 1
             else:
                 for char in line.strip():
-                    if bit_array[i]:
-                        print(char, end='', file=sys.stdout)
-                    i += 1
-                print('', file=sys.stdout)
+                    if char != '\n':
+                        if bit_array[i]:
+                            j = j + 1
+                            print(char, end='', file=sys.stdout)
+                            if j == wrap:
+                                print("\n", end='', file=sys.stdout)
+                                j = 0
+                        i += 1
+                #print('', file=sys.stdout)
 
 def parse_args():
     """
@@ -75,7 +91,9 @@ def parse_args():
                         help='Input fasta file')
     parser.add_argument('-m', '--missing', nargs='+', default=['N', '-', '?', 'X', 'n', 'x'],
                         help='Missing data characters')
-    parser.add_argument('-V', '--version', action='version', version='%(prog)s 1.0',
+    parser.add_argument('-w', '--wrap', nargs='+', default=wrap_default,
+                        help='Set line line length for sequence in output.')
+    parser.add_argument('-V', '--version', action='version', version='%(prog)s ' + VERSION,
                         help='Print version and exit')
     parser.add_argument('--verbose', '-v', action='count', default=0,
                         help='Increase verbosity')
@@ -112,7 +130,7 @@ def main():
     if args.verbose > 0:
         print(f"Step 3(3): Printing remaining alignment columns...", file=sys.stderr)
 
-    print_fasta(args.fasta_file, bit_array)
+    print_fasta(args.fasta_file, bit_array, args.wrap)
 
     if args.verbose > 0:
         print(f"End of script.", file=sys.stderr)
