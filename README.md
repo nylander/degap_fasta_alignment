@@ -1,6 +1,6 @@
 # DFA - Degap Fasta Alignments
 
-- Last modified: sön mar 02, 2025  04:01
+- Last modified: mån mar 31, 2025  05:46
 - Sign: JN
 
 ## Description
@@ -21,7 +21,7 @@ See [INSTALL](INSTALL)
 
 - `-h`               show help
 - `-V`               print version
-- `-n`               be noverbose
+- `-v`               be verbose
 - `-m missing_chars` characters treated as missing (default: `Nn?Xx-`)
 - `-w wrap_length`   wrap sequences to length `wrap_length` (default: `60`)
 

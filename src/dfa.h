@@ -10,7 +10,7 @@
 #include <zlib.h>
 
 #define bit_array_t unsigned char
-#define VERSION_STR "0.1"
+#define VERSION_STR "0.1.1"
 #define DEFAULT_MISSING_CHARS "Nn?Xx-"
 #define DEFAULT_WRAP_LENGTH 60
 

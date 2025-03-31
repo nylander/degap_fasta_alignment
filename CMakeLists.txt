@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(dfa VERSION 0.1.1)
+set(CMAKE_C_STANDARD 99)
+find_package(ZLIB REQUIRED)
+add_executable(dfa src/dfa.c)
+target_link_libraries(dfa ZLIB::ZLIB m)
+install(TARGETS dfa DESTINATION bin)

@@ -3,10 +3,10 @@
 void printUsage(const char *program_name) {
 
     fprintf(stderr, "\nRemove columns in fasta formatted alignments containing all missing data (%s).\n\n", DEFAULT_MISSING_CHARS);
-    fprintf(stderr, "Usage:\n\n %s [-h][-n][-V] infile(s).\n\n", program_name);
+    fprintf(stderr, "Usage:\n\n %s [-h][-v][-V] infile(s).\n\n", program_name);
     fprintf(stderr, "  -h                show help\n");
     fprintf(stderr, "  -V                print version\n");
-    fprintf(stderr, "  -n                be noverbose\n");
+    fprintf(stderr, "  -v                be verbose\n");
     fprintf(stderr, "  -m missing_chars  list of chars treated as missing\n");
     fprintf(stderr, "  -w wrap_length    wrap seq to length (default: %i)\n\n", DEFAULT_WRAP_LENGTH);
     fprintf(stderr, "  infile should be in fasta format.\n\n");
