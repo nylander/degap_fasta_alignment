@@ -3,7 +3,7 @@
 #
 # Copyright © 2025 nylander <johan.nylander@nrm.se>
 # Distributed under terms of the MIT license.
-# Last modified: sön mar 02, 2025  05:49
+# Last modified: 2026-02-03 17:05:12
 # Sign: JN
 
 """
@@ -106,7 +106,7 @@ def main():
     args = parse_args()
 
     if args.verbose > 0:
-        print(f"Step 1(3): Getting initial seq length...", file=sys.stderr)
+        print("Step 1(3): Getting initial seq length...", file=sys.stderr)
 
     seq_length = get_seq_len(args.fasta_file)
     if args.verbose > 0:
@@ -118,7 +118,7 @@ def main():
         print(f"bit array start: {bit_array}", file=sys.stderr)
 
     if args.verbose > 0:
-        print(f"Step 2(3): Initiating bit array...", file=sys.stderr)
+        print("Step 2(3): Initiating bit array...", file=sys.stderr)
 
     init_bit_array(args.fasta_file, args.missing, bit_array)
     if args.verbose > 2:
@@ -128,12 +128,12 @@ def main():
         print(f"Number of columns with missing data: {bit_array.count(False)}", file=sys.stderr)
 
     if args.verbose > 0:
-        print(f"Step 3(3): Printing remaining alignment columns...", file=sys.stderr)
+        print("Step 3(3): Printing remaining alignment columns...", file=sys.stderr)
 
     print_fasta(args.fasta_file, bit_array, args.wrap)
 
     if args.verbose > 0:
-        print(f"End of script.", file=sys.stderr)
+        print("End of script.", file=sys.stderr)
 
 if __name__ == '__main__':
     main()
